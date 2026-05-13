@@ -19,6 +19,8 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+        env:
+          BASE_URL: /foxops-techgroup.github.io/
 
       - name: Deploy to content repo
         uses: peaceiris/actions-gh-pages@v4
