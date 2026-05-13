@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Navbar from '@/components/Navbar.astro';
+import { Badge } from '@/components/ui/badge';
+---
+
+<BaseLayout
+  title="About — JXCPC Tech Group"
+  description="About JXCPC Tech Group"
+>
+  <Navbar />
+
+  <main class="min-h-screen">
+    <section class="container mx-auto px-4 py-32">
+      <div class="max-w-3xl mx-auto">
+        <Badge variant="outline" class="mb-4">About</Badge>
+        <h1 class="text-4xl font-bold tracking-tight mb-8">JXCPC Tech Group</h1>
+
+        <div class="prose prose-invert max-w-none space-y-6 text-muted-foreground leading-relaxed">
+          <p>
+            We are currently dedicated to the technical operation and maintenance of
+            XCPC contests in and outside Jiangxi Province, and provide technical support
+            for contests mainly in Jiangxi Province.
+          </p>
+
+          <p>
+            Our organization is still in the early stage. If you want to contribute to us,
+            welcome to join us.
+          </p>
+
+          <h2 class="text-2xl font-semibold text-foreground mt-12 mb-4">Contests We Have Served</h2>
+          <ul class="list-disc list-inside space-y-2">
+            <li>2023 ICPC Jiangxi Provincial Programming Contest</li>
+            <li>2024 ICPC Jiangxi Provincial Programming Contest</li>
+            <li>2025 ICPC National Invitational Programming Contest (Nanchang) &amp; 2025 ICPC Jiangxi Provincial Programming Contest</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t">
+      <div class="container mx-auto px-4 py-8 text-center text-sm text-muted-foreground">
+        JXCPC Tech Group
+      </div>
+    </footer>
+  </main>
+</BaseLayout>

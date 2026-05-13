@@ -1,0 +1,49 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Navbar from '@/components/Navbar.astro';
+import { Badge } from '@/components/ui/badge';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({
+    params: { slug: note.slug },
+    props: { note },
+  }));
+}
+
+const { note } = Astro.props;
+const { Content } = await note.render();
+---
+
+<BaseLayout
+  title={`${note.data.title} — JXCPC Tech Group`}
+  description={note.data.title}
+>
+  <Navbar />
+
+  <main class="min-h-screen">
+    <article class="container mx-auto px-4 py-32">
+      <div class="max-w-3xl mx-auto">
+        <a href="/notes" class="text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 inline-block">
+          &larr; All notes
+        </a>
+        <Badge variant="outline" class="mb-4">Note</Badge>
+        <h1 class="text-4xl font-bold tracking-tight mb-12">{note.data.title}</h1>
+
+        <div class="prose prose-invert max-w-none text-muted-foreground leading-relaxed
+          prose-headings:text-foreground prose-a:text-primary prose-strong:text-foreground
+          prose-code:text-foreground prose-pre:bg-zinc-900 prose-pre:border prose-pre:border-zinc-800
+          prose-li:text-muted-foreground">
+          <Content />
+        </div>
+      </div>
+    </article>
+
+    <footer class="border-t">
+      <div class="container mx-auto px-4 py-8 text-center text-sm text-muted-foreground">
+        JXCPC Tech Group
+      </div>
+    </footer>
+  </main>
+</BaseLayout>

@@ -1,0 +1,52 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import Navbar from '@/components/Navbar.astro';
+import { Badge } from '@/components/ui/badge';
+import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { getCollection } from 'astro:content';
+
+const notes = await getCollection('notes');
+---
+
+<BaseLayout
+  title="Notes — JXCPC Tech Group"
+  description="Digital garden notes"
+>
+  <Navbar />
+
+  <main class="min-h-screen">
+    <section class="container mx-auto px-4 py-32">
+      <div class="max-w-3xl mx-auto">
+        <Badge variant="outline" class="mb-4">Notes</Badge>
+        <h1 class="text-4xl font-bold tracking-tight mb-12">Digital Garden</h1>
+
+        <div class="grid gap-4">
+          {
+            notes.length === 0 ? (
+              <p class="text-muted-foreground">No notes yet.</p>
+            ) : (
+              notes.map((note) => (
+                <Card>
+                  <CardHeader>
+                    <a href={`/notes/${note.slug}`}>
+                      <CardTitle class="hover:text-primary transition-colors">
+                        {note.data.title}
+                      </CardTitle>
+                    </a>
+                    <CardDescription>{note.slug}</CardDescription>
+                  </CardHeader>
+                </Card>
+              ))
+            )
+          }
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t">
+      <div class="container mx-auto px-4 py-8 text-center text-sm text-muted-foreground">
+        JXCPC Tech Group
+      </div>
+    </footer>
+  </main>
+</BaseLayout>
