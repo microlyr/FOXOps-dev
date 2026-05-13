@@ -6,6 +6,8 @@ import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/ca
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Trophy, Users, Mail, Monitor, Cpu, Terminal, ChevronRight } from 'lucide-react';
+
+const base = import.meta.env.BASE_URL || '/';
 ---
 
 <BaseLayout
@@ -207,8 +209,8 @@ import { Trophy, Users, Mail, Monitor, Cpu, Terminal, ChevronRight } from 'lucid
           <span class="text-sm font-semibold">JXCPC Tech Group</span>
         </div>
         <div class="flex items-center gap-6 text-sm text-muted-foreground">
-          <a href="/about" class="hover:text-foreground transition-colors">About</a>
-          <a href="/notes" class="hover:text-foreground transition-colors">Notes</a>
+          <a href={`${base}about`} class="hover:text-foreground transition-colors">About</a>
+          <a href={`${base}notes`} class="hover:text-foreground transition-colors">Notes</a>
           <a href="mailto:weiqi_yan@outlook.com" class="hover:text-foreground transition-colors">Contact</a>
         </div>
         <p class="text-xs text-muted-foreground">

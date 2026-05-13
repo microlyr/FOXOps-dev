@@ -4,6 +4,8 @@ import Navbar from '@/components/Navbar.astro';
 import { Badge } from '@/components/ui/badge';
 import { getCollection } from 'astro:content';
 
+const base = import.meta.env.BASE_URL || '/';
+
 export async function getStaticPaths() {
   const notes = await getCollection('notes');
   return notes.map((note) => ({
@@ -25,7 +27,7 @@ const { Content } = await note.render();
   <main class="min-h-screen">
     <article class="container mx-auto px-4 py-32">
       <div class="max-w-3xl mx-auto">
-        <a href="/notes" class="text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 inline-block">
+        <a href={`${base}notes`} class="text-sm text-muted-foreground hover:text-foreground transition-colors mb-8 inline-block">
           &larr; All notes
         </a>
         <Badge variant="outline" class="mb-4">Note</Badge>

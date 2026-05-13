@@ -1,18 +1,20 @@
 ---
 import ThemeToggle from '@/components/ThemeToggle';
+
+const base = import.meta.env.BASE_URL || '/';
 ---
 
 <header class="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
   <div class="container mx-auto flex h-16 items-center justify-between px-4">
-    <a href="/" class="flex items-center gap-2 font-bold text-lg">
+    <a href={base} class="flex items-center gap-2 font-bold text-lg">
       <span>JXCPC Tech Group</span>
     </a>
 
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium text-muted-foreground">
-      <a href="/#about" class="hover:text-foreground transition-colors">About</a>
-      <a href="/#contests" class="hover:text-foreground transition-colors">Contests</a>
-      <a href="/#join" class="hover:text-foreground transition-colors">Join</a>
-      <a href="/notes" class="hover:text-foreground transition-colors">Notes</a>
+      <a href={`${base}#about`} class="hover:text-foreground transition-colors">About</a>
+      <a href={`${base}#contests`} class="hover:text-foreground transition-colors">Contests</a>
+      <a href={`${base}#join`} class="hover:text-foreground transition-colors">Join</a>
+      <a href={`${base}notes`} class="hover:text-foreground transition-colors">Notes</a>
     </nav>
 
     <div class="flex items-center gap-2">
