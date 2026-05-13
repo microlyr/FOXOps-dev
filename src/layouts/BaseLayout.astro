@@ -1,0 +1,31 @@
+---
+import '../styles/globals.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'FOXOps TechGroup',
+  description = 'FOXOps TechGroup — 开源技术团队',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script is:inline>
+      const t = localStorage.getItem('theme');
+      if (t === 'light') document.documentElement.classList.remove('dark');
+    </script>
+  </head>
+  <body class="min-h-screen bg-background text-foreground antialiased">
+    <slot />
+  </body>
+</html>
