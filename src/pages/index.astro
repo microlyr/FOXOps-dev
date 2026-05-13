@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
-import { Trophy, Users, Mail, Github, ExternalLink } from 'lucide-react';
+import { Trophy, Users, Mail, Monitor, Cpu, Terminal, ChevronRight } from 'lucide-react';
 ---
 
 <BaseLayout
@@ -19,8 +19,17 @@ import { Trophy, Users, Mail, Github, ExternalLink } from 'lucide-react';
     <section class="relative overflow-hidden border-b">
       <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/10" />
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+      <!-- 装饰圆点 -->
+      <div class="absolute top-20 left-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+      <div class="absolute bottom-10 right-10 w-48 h-48 bg-accent/10 rounded-full blur-3xl" />
       <div class="container mx-auto px-4 py-32 sm:py-40 relative">
         <div class="flex flex-col items-center text-center max-w-3xl mx-auto">
+          <!-- 狐狸吉祥物 -->
+          <img
+            src="/logo/foxnobg.png"
+            alt="Mascot"
+            class="w-24 h-24 sm:w-32 sm:h-32 object-contain mb-6 animate-bounce-slow"
+          />
           <Badge variant="secondary" class="mb-6 px-4 py-1.5 text-sm">JXCPC Tech Group</Badge>
           <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-foreground mb-6 leading-tight">
             为编程竞赛<span class="text-primary">保驾护航</span>
@@ -33,6 +42,7 @@ import { Trophy, Users, Mail, Github, ExternalLink } from 'lucide-react';
               <Button size="lg" class="gap-2">
                 <Trophy class="h-5 w-5" />
                 服务过的赛事
+                <ChevronRight class="h-4 w-4" />
               </Button>
             </a>
             <a href="#join">
@@ -53,10 +63,56 @@ import { Trophy, Users, Mail, Github, ExternalLink } from 'lucide-react';
         <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-6">
           JXCPC Tech Group
         </h2>
-        <p class="text-muted-foreground text-lg leading-relaxed">
+        <p class="text-muted-foreground text-lg leading-relaxed max-w-2xl mx-auto">
           We are dedicated to the technical operation and maintenance of XCPC contests in and outside Jiangxi Province.
           Our organization is still in the early stage. If you want to contribute, welcome to join us.
         </p>
+        <div class="flex justify-center gap-10 mt-10 text-center">
+          <div>
+            <div class="text-3xl font-bold text-primary">3+</div>
+            <div class="text-sm text-muted-foreground mt-1">Contests Served</div>
+          </div>
+          <div>
+            <div class="text-3xl font-bold text-primary">2023</div>
+            <div class="text-sm text-muted-foreground mt-1">Since</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Separator />
+
+    <!-- Capabilities -->
+    <section class="container mx-auto px-4 py-24">
+      <div class="text-center mb-16">
+        <Badge variant="outline" class="mb-4">Capabilities</Badge>
+        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight mb-4">
+          技术能力
+        </h2>
+      </div>
+
+      <div class="grid gap-8 sm:grid-cols-3 max-w-4xl mx-auto">
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+            <Monitor class="h-7 w-7 text-primary" />
+          </div>
+          <h3 class="font-semibold mb-2">竞赛系统运维</h3>
+          <p class="text-sm text-muted-foreground">DOMjudge / Hydro 等判题系统的部署、配置与现场运维</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+            <Terminal class="h-7 w-7 text-accent-foreground" />
+          </div>
+          <h3 class="font-semibold mb-2">工具链开发</h3>
+          <p class="text-sm text-muted-foreground">比赛环境自动化、LiveCD 制作、选手端工具</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
+            <Cpu class="h-7 w-7 text-accent-foreground" />
+          </div>
+          <h3 class="font-semibold mb-2">嵌入式 & 无人机</h3>
+          <p class="text-sm text-muted-foreground">嵌入式开发、无人机上位机交互</p>
+        </div>
       </div>
     </section>
 
@@ -78,30 +134,40 @@ import { Trophy, Users, Mail, Github, ExternalLink } from 'lucide-react';
         <Card>
           <CardHeader>
             <div class="flex items-center gap-3">
-              <Trophy class="h-5 w-5 text-primary shrink-0" />
-              <CardTitle class="text-lg">2025 ICPC National Invitational (Nanchang)</CardTitle>
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Trophy class="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <CardTitle class="text-lg">2025 ICPC National Invitational (Nanchang)</CardTitle>
+                <CardDescription>&amp; 2025 ICPC Jiangxi Provincial Programming Contest</CardDescription>
+              </div>
             </div>
-            <CardDescription>
-              &amp; 2025 ICPC Jiangxi Provincial Programming Contest
-            </CardDescription>
           </CardHeader>
         </Card>
 
         <Card>
           <CardHeader>
             <div class="flex items-center gap-3">
-              <Trophy class="h-5 w-5 text-primary shrink-0" />
-              <CardTitle class="text-lg">2024 ICPC Jiangxi Provincial Programming Contest</CardTitle>
-            </CardDescription>
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Trophy class="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <CardTitle class="text-lg">2024 ICPC Jiangxi Provincial Programming Contest</CardTitle>
+              </div>
+            </div>
           </CardHeader>
         </Card>
 
         <Card>
           <CardHeader>
             <div class="flex items-center gap-3">
-              <Trophy class="h-5 w-5 text-primary shrink-0" />
-              <CardTitle class="text-lg">2023 ICPC Jiangxi Provincial Programming Contest</CardTitle>
-            </CardDescription>
+              <div class="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                <Trophy class="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <CardTitle class="text-lg">2023 ICPC Jiangxi Provincial Programming Contest</CardTitle>
+              </div>
+            </div>
           </CardHeader>
         </Card>
       </div>
@@ -113,19 +179,19 @@ import { Trophy, Users, Mail, Github, ExternalLink } from 'lucide-react';
     <section id="join" class="container mx-auto px-4 py-24">
       <div class="max-w-2xl mx-auto text-center">
         <Badge variant="outline" class="mb-4">Join Us</Badge>
-        <h2 class="text-3xl font-bold tracking-tight mb-4">
-          加入我们
-        </h2>
+        <h2 class="text-3xl font-bold tracking-tight mb-4">加入我们</h2>
         <p class="text-muted-foreground text-lg mb-6">
           We are currently on an invitation-only basis.
         </p>
         <Card class="inline-block text-left mx-auto">
           <CardHeader>
             <div class="flex items-center gap-3 mb-2">
-              <Mail class="h-5 w-5 text-muted-foreground" />
+              <div class="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
+                <Mail class="h-4 w-4 text-primary" />
+              </div>
               <span class="text-sm text-muted-foreground">Send your CV to</span>
             </div>
-            <a href="mailto:weiqi_yan@outlook.com" class="text-lg font-mono font-semibold text-primary hover:underline">
+            <a href="mailto:weiqi_yan@outlook.com" class="text-lg font-mono font-semibold text-primary hover:underline pl-12">
               weiqi_yan@outlook.com
             </a>
           </CardHeader>
@@ -136,9 +202,13 @@ import { Trophy, Users, Mail, Github, ExternalLink } from 'lucide-react';
     <!-- Footer -->
     <footer class="border-t">
       <div class="container mx-auto px-4 py-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <span class="text-sm font-semibold">JXCPC Tech Group</span>
+        <div class="flex items-center gap-3">
+          <img src="/logo/origin-min.png" alt="Logo" class="h-8 w-8 object-contain rounded" />
+          <span class="text-sm font-semibold">JXCPC Tech Group</span>
+        </div>
         <div class="flex items-center gap-6 text-sm text-muted-foreground">
           <a href="/about" class="hover:text-foreground transition-colors">About</a>
+          <a href="/notes" class="hover:text-foreground transition-colors">Notes</a>
           <a href="mailto:weiqi_yan@outlook.com" class="hover:text-foreground transition-colors">Contact</a>
         </div>
         <p class="text-xs text-muted-foreground">
